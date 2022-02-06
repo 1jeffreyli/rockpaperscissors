@@ -26,3 +26,7 @@ function play(playerSelection, computerSelection){
         return "It's a tie. Play again.";
     }
 }
+
+const playerSelection = "rock";
+const computerSelection = computerPlay();
+console.log(play(playerSelection, computerSelection));
