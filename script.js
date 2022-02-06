@@ -34,6 +34,8 @@ console.log(play(playerSelection, computerSelection));
 function game(){
     for (let i=0; i < 5; i++) {
         let playerSelection = prompt("Rock, Paper, or Scissors?", "");
-        
+        // console.log(play()) results
+        // add a counter variable for player and computer in play() that increments for the winner
+        // at the end of the loop, compare the win count between player and computer and return the final winner
     }
 }
