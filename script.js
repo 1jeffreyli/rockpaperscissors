@@ -20,31 +20,29 @@ function play(playerSelection, computerSelection){
 
     // if...else if...else statements for all game outcomes
     if (playerMove === "rock" && computerMove === "paper") {
+        computerWins++;
         return "You Lose! Paper beats Rock.";
-        computerWins++;
     } else if (playerMove === "rock" && computerMove === "scissors") {
+        playerWins++;
         return "You Win! Rock beats Paper.";
-        playerWins++;
     } else if (playerMove === "paper" && computerMove === "rock") {
+        playerWins++;
         return "You Win! Paper beats Rock.";
-        playerWins++;
     } else if (playerMove === "paper" && computerMove === "scissors") {
+        computerWins++;
         return "You Lose! Scissors beats Paper.";
-        computerWins++;
     } else if (playerMove === "scissors" && computerMove === "rock") {
-        return "You Lose! Rock beats Scissors";
         computerWins++;
+        return "You Lose! Rock beats Scissors";
     } else if (playerMove === "scissors" && computerMove === "paper") {
-        return "You Win! Scissors beats Paper.";
         playerWins++;
+        return "You Win! Scissors beats Paper.";
     } else {
         return "It's a tie. Play again.";
     }
 }
 
-const playerSelection = "rock";
 const computerSelection = computerPlay();
-console.log(play(playerSelection, computerSelection));
 
 function game(){
     // for loop that plays 5 rounds of rps
