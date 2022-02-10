@@ -42,16 +42,19 @@ function play(playerSelection, computerSelection){
     }
 }
 
+// this calls the function computerPlay() and sets it to the constant computerSelection,
+//  thus actually making the computer play after defining the variables earlier
 const computerSelection = computerPlay();
 
+// function game() that plays rps 5 times and declares a winner at the end
 function game(){
-    // for loop that plays 5 rounds of rps
     for (let i=0; i < 5; i++) {
         let playerSelection = prompt("Rock, Paper, or Scissors?", "");
         console.log(play(playerSelection, computerSelection));
     }
 
-    // if...else statement to compare player and computer wins to decide who is the final winner, after for loop executes
+    // if...else statement to compare player and computer wins to decide who is the final winner,
+    //  after for loop executes
     if(playerWins > computerWins){
         console.log(`You won! You won ${playerWins} times.`);
     } else if(playerWins < computerWins){
@@ -61,4 +64,5 @@ function game(){
     }
 }
 
+// call the game() function to play rps
 game();
