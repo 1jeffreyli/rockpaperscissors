@@ -53,18 +53,26 @@ rock.addEventListener("click", () => {
     // console.log(play("rock", computerPlay()));
     const rockResult = document.createElement("p");
     rockResult.textContent = `${play("rock", computerPlay())}`;
-    rockResult.style.fontSize = "16px";
+    rockResult.classList.add("font18");
     results.appendChild(rockResult);
 });
 
 const paper = document.querySelector(".paper");
 paper.addEventListener("click", () => {
-    console.log(play("paper", computerPlay()));
+    // console.log(play("paper", computerPlay()));
+    const paperResult = document.createElement("p");
+    paperResult.textContent = `${play("paper", computerPlay())}`;
+    paperResult.classList.add("font18");
+    results.appendChild(paperResult);
 });
 
 const scissors = document.querySelector(".scissors");
 scissors.addEventListener("click", () => {
-    console.log(play("scissors", computerPlay()));
+    // console.log(play("scissors", computerPlay()));
+    const scissorsResult = document.createElement("p");
+    scissorsResult.textContent = `${play("scissors", computerPlay())}`;
+    scissorsResult.classList.add("font18");
+    results.appendChild(scissorsResult);
 });
 
 
