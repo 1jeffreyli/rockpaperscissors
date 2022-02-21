@@ -1,4 +1,3 @@
-console.log("Hello World!");
 let moves = ["Rock", "Paper", "Scissors"];
 
 // define win count variables globally
@@ -46,6 +45,15 @@ function play(playerSelection, computerSelection){
 //  thus actually making the computer play after defining the variables earlier
 const computerSelection = computerPlay();
 
+// Adds a event listener to the RPS buttons
+const rock = document.querySelector(".rock");
+rock.addEventListener("click", playRock);
+
+function playRock () {
+    console.log(play("rock", computerPlay()));
+};
+
+
 // function game() that plays rps 5 times and declares a winner at the end
 // function game(){
 //     for (let i=0; i < 5; i++) {
@@ -65,4 +73,4 @@ const computerSelection = computerPlay();
 // }
 
 // call the game() function to play rps
-game();
+// game();
