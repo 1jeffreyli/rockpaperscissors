@@ -6,8 +6,10 @@
 
 .wrapper{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
 .buttons{
@@ -23,4 +25,17 @@
 
 button{
     padding: 20px;
+}
+
+.results{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    background-color: lightblue;
+    padding: 20px;
+}
+
+.results h1{
+    font-size: 24px;
 }

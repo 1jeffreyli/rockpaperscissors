@@ -45,24 +45,27 @@ function play(playerSelection, computerSelection){
 //  thus actually making the computer play after defining the variables earlier
 const computerSelection = computerPlay();
 
+const results = document.querySelector(".results");
+
 // Adds an event listener to each RPS buttons
 const rock = document.querySelector(".rock");
-rock.addEventListener("click", playRock);
-function playRock () {
-    console.log(play("rock", computerPlay()));
-};
+rock.addEventListener("click", () => {
+    // console.log(play("rock", computerPlay()));
+    const rockResult = document.createElement("p");
+    rockResult.textContent = `${play("rock", computerPlay())}`;
+    rockResult.style.fontSize = "16px";
+    results.appendChild(rockResult);
+});
 
 const paper = document.querySelector(".paper");
-paper.addEventListener("click", playPaper);
-function playPaper () {
+paper.addEventListener("click", () => {
     console.log(play("paper", computerPlay()));
-};
+});
 
 const scissors = document.querySelector(".scissors");
-scissors.addEventListener("click", playScissors);
-function playScissors () {
+scissors.addEventListener("click", () => {
     console.log(play("scissors", computerPlay()));
-};
+});
 
 
 // function game() that plays rps 5 times and declares a winner at the end
