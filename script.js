@@ -55,7 +55,8 @@ rock.addEventListener("click", () => {
     rockResult.textContent = `${play("rock", computerPlay())}`;
     rockResult.classList.add("font18");
     results.appendChild(rockResult);
-});
+}, winner()
+);
 
 const paper = document.querySelector(".paper");
 paper.addEventListener("click", () => {
@@ -75,6 +76,23 @@ scissors.addEventListener("click", () => {
     results.appendChild(scissorsResult);
 });
 
+// Announce winner of the game once one player reaches 5 pts
+// maybe add 2nd function as a parameter to the eventListener
+function winner() {
+    if (playerWins == 5) {
+        const playerW = document.createElement("h2");
+        playerW.textContent = "Winner, winner, chicken dinner! The human won.";
+        results.appendChild(playerW);
+    } else if (computerWins == 5) {
+        const compW = document.createElement("h2");
+        compW.textContent = "Womp, womp, womp. The computer won.";
+        results.appendChild(compW);
+    } else {
+        const playAgain = document.createElement("h2");
+        playAgain.textContent = "Play again by clicking a button.";
+        results.appendChild(playAgain);
+    }
+}
 
 // function game() that plays rps 5 times and declares a winner at the end
 // function game(){
