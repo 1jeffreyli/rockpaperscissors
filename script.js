@@ -47,22 +47,22 @@ function play(playerSelection, computerSelection){
 const computerSelection = computerPlay();
 
 // function game() that plays rps 5 times and declares a winner at the end
-function game(){
-    for (let i=0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper, or Scissors?", "");
-        console.log(play(playerSelection, computerSelection));
-    }
+// function game(){
+//     for (let i=0; i < 5; i++) {
+//         let playerSelection = prompt("Rock, Paper, or Scissors?", "");
+//         console.log(play(playerSelection, computerSelection));
+//     }
 
-    // if...else statement to compare player and computer wins to decide who is the final winner,
-    //  after for loop executes
-    if(playerWins > computerWins){
-        console.log(`You won! You won ${playerWins} times.`);
-    } else if(playerWins < computerWins){
-        console.log(`You lost! The computer won ${computerWins} times.`);
-    } else{
-        console.log(`Somehow you tied. You won ${playerWins} times and the computer won ${computerWins} times.`);
-    }
-}
+//     // if...else statement to compare player and computer wins to decide who is the final winner,
+//     //  after for loop executes
+//     if(playerWins > computerWins){
+//         console.log(`You won! You won ${playerWins} times.`);
+//     } else if(playerWins < computerWins){
+//         console.log(`You lost! The computer won ${computerWins} times.`);
+//     } else{
+//         console.log(`Somehow you tied. You won ${playerWins} times and the computer won ${computerWins} times.`);
+//     }
+// }
 
 // call the game() function to play rps
 game();
