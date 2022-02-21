@@ -45,12 +45,23 @@ function play(playerSelection, computerSelection){
 //  thus actually making the computer play after defining the variables earlier
 const computerSelection = computerPlay();
 
-// Adds a event listener to the RPS buttons
+// Adds an event listener to each RPS buttons
 const rock = document.querySelector(".rock");
 rock.addEventListener("click", playRock);
-
 function playRock () {
     console.log(play("rock", computerPlay()));
+};
+
+const paper = document.querySelector(".paper");
+paper.addEventListener("click", playPaper);
+function playPaper () {
+    console.log(play("paper", computerPlay()));
+};
+
+const scissors = document.querySelector(".scissors");
+scissors.addEventListener("click", playScissors);
+function playScissors () {
+    console.log(play("scissors", computerPlay()));
 };
 
 
