@@ -46,6 +46,8 @@ function play(playerSelection, computerSelection){
 const computerSelection = computerPlay();
 
 const results = document.querySelector(".results");
+const score = document.querySelector(".score");
+
 
 // Adds an event listener to each RPS button
 const rock = document.querySelector(".rock");
@@ -55,6 +57,12 @@ rock.addEventListener("click", () => {
     rockResult.textContent = `${play("rock", computerPlay())}`;
     rockResult.classList.add("font18");
     results.appendChild(rockResult);
+    const playerWinCount = document.createElement("p");
+    playerWinCount.textContent = `Player Wins: ${playerWins}`;
+    score.appendChild(playerWinCount);
+    const computerWinCount = document.createElement("p");
+    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
+    score.appendChild(computerWinCount);
 }
 );
 
@@ -65,6 +73,12 @@ paper.addEventListener("click", () => {
     paperResult.textContent = `${play("paper", computerPlay())}`;
     paperResult.classList.add("font18");
     results.appendChild(paperResult);
+    const playerWinCount = document.createElement("p");
+    playerWinCount.textContent = `Player Wins: ${playerWins}`;
+    score.appendChild(playerWinCount);
+    const computerWinCount = document.createElement("p");
+    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
+    score.appendChild(computerWinCount);
 }
 );
 
@@ -75,10 +89,24 @@ scissors.addEventListener("click", () => {
     scissorsResult.textContent = `${play("scissors", computerPlay())}`;
     scissorsResult.classList.add("font18");
     results.appendChild(scissorsResult);
+    const playerWinCount = document.createElement("p");
+    playerWinCount.textContent = `Player Wins: ${playerWins}`;
+    score.appendChild(playerWinCount);
+    const computerWinCount = document.createElement("p");
+    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
+    score.appendChild(computerWinCount);
 }
 );
 
 // Display the running score and announce a winner of the game once one player reaches 5 points
+// const playerWinCount = document.createElement("p");
+// playerWinCount.textContent = `Player Wins: ${playerWins}`;
+// score.appendChild(playerWinCount);
+
+// const computerWinCount = document.createElement("p");
+// computerWinCount.textContent = `Computer Wins: ${computerWins}`;
+// score.appendChild(computerWinCount);
+
 
 // function game() that plays rps 5 times and declares a winner at the end
 // function game(){
