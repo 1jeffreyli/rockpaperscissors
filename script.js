@@ -49,6 +49,16 @@ const computerSelection = computerPlay();
 const results = document.querySelector(".results");
 const score = document.querySelector(".score");
 
+// define a function that updates the score displayed to be called by the click event later
+function updateScore() {
+    const playerWinCount = document.createElement("p");
+    playerWinCount.innerHTML = `Player Wins: ${playerWins}`;
+    score.appendChild(playerWinCount);
+    const computerWinCount = document.createElement("p");
+    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
+    score.appendChild(computerWinCount);
+}
+
 // define rps DOM functions to be called
 let playRock = function() {
     const rockResult = document.createElement("p");
@@ -74,14 +84,6 @@ let playScissors = function() {
     updateScore();
 }
 
-function updateScore() {
-    const playerWinCount = document.createElement("p");
-    playerWinCount.innerHTML = `Player Wins: ${playerWins}`;
-    score.appendChild(playerWinCount);
-    const computerWinCount = document.createElement("p");
-    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
-    score.appendChild(computerWinCount);
-}
 
 // adds an event listener to each RPS button
 const rock = document.querySelector(".rock");
