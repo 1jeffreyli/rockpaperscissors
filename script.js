@@ -47,7 +47,7 @@ const computerSelection = computerPlay();
 
 const results = document.querySelector(".results");
 
-// Adds an event listener to each RPS buttons
+// Adds an event listener to each RPS button
 const rock = document.querySelector(".rock");
 rock.addEventListener("click", () => {
     // console.log(play("rock", computerPlay()));
@@ -55,7 +55,7 @@ rock.addEventListener("click", () => {
     rockResult.textContent = `${play("rock", computerPlay())}`;
     rockResult.classList.add("font18");
     results.appendChild(rockResult);
-}, winner()
+}
 );
 
 const paper = document.querySelector(".paper");
@@ -65,7 +65,7 @@ paper.addEventListener("click", () => {
     paperResult.textContent = `${play("paper", computerPlay())}`;
     paperResult.classList.add("font18");
     results.appendChild(paperResult);
-}, winner()
+}
 );
 
 const scissors = document.querySelector(".scissors");
@@ -75,28 +75,10 @@ scissors.addEventListener("click", () => {
     scissorsResult.textContent = `${play("scissors", computerPlay())}`;
     scissorsResult.classList.add("font18");
     results.appendChild(scissorsResult);
-}, winner()
+}
 );
 
-// Announce winner of the game once one player reaches 5 pts
-// iterate through the results to count wins to determine winner
-function winner() {
-   const wins = document.querySelectorAll(".results");
-   const winsArr = Array.from(wins);
-   for (let i=0; i < winsArr.length; i++) {
-       if (playerWins[i] == 5) {
-           const playerW = document.createElement("h2");
-           playerW.textContent = "Winner, winner, chicken dinner! The human has won.";
-           results.appendChild(playerW);
-       } else if (computerWins[i] == 5) {
-           const compW = document.createElement("h2");
-           compW.textContent = "Womp, womp, womp. The computer has won.";
-           results.appendChild(compW);
-       } else {
-           continue;
-       }
-   }
-}
+// Display the running score and announce a winner of the game once one player reaches 5 points
 
 // function game() that plays rps 5 times and declares a winner at the end
 // function game(){
