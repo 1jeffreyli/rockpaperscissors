@@ -44,15 +44,3 @@ h1{
     font-size: 18px;
 }
 
-.score ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    list-style: none;
-}
-
-.score li{
-    font-size: 18px;
-}

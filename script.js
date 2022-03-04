@@ -51,12 +51,9 @@ const score = document.querySelector(".score");
 
 // define a function that updates the score displayed to be called by the click event later
 function updateScore() {
-    const playerWinCount = document.createElement("p");
-    playerWinCount.innerHTML = `Player Wins: ${playerWins}`;
-    score.appendChild(playerWinCount);
-    const computerWinCount = document.createElement("p");
-    computerWinCount.textContent = `Computer Wins: ${computerWins}`;
-    score.appendChild(computerWinCount);
+   const counter = document.querySelector(".scoreboard");
+   counter.innerHTML = `Player Wins: ${playerWins} Computer Wins: ${computerWins}`;
+   counter.parentElement.replaceChild(counter);
 }
 
 // define rps DOM functions to be called
