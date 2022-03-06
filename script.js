@@ -13,6 +13,7 @@ function computerPlay(){
 function add (text) {
     const resultText = document.createElement("p");
     resultText.innerText=`${text}`;
+    resultText.classList.add("font18");
     results.appendChild(resultText);
 }
 
@@ -37,27 +38,21 @@ function play(playerSelection, computerSelection){
     if (playerMove === "rock" && computerMove === "paper") {
         computerWins++;
         add("You lose! Paper beats rock.");
-        // return "You Lose! Paper beats Rock.";
     } else if (playerMove === "rock" && computerMove === "scissors") {
         playerWins++;
         add("You win! Rock beats paper.");
-        // return "You Win! Rock beats Paper.";
     } else if (playerMove === "paper" && computerMove === "rock") {
         playerWins++;
         add("You win! Paper beats rock.");
-        // return "You Win! Paper beats Rock.";
     } else if (playerMove === "paper" && computerMove === "scissors") {
         computerWins++;
         add("You lose! Scissors beats paper.");
-        // return "You Lose! Scissors beats Paper.";
     } else if (playerMove === "scissors" && computerMove === "rock") {
         computerWins++;
         add("You lose! Rock beats scissors");
-        // return "You Lose! Rock beats Scissors";
     } else if (playerMove === "scissors" && computerMove === "paper") {
         playerWins++;
         add("You win! Scissors beats paper.");
-        // return "You Win! Scissors beats Paper.";
     } else {
         add("It's a tie. Play again.");
     }
@@ -77,30 +72,25 @@ const counter = document.querySelector(".scoreboard");
 function updateScore() {
    counter.innerHTML = `Player Wins: ${playerWins} Computer Wins: ${computerWins}`;
    counter.parentElement.replaceChild(counter);
+   counter.classList.add("font18");
 }
 
 // define rps DOM functions to be called
 let playRock = function() {
     const rockResult = document.createElement("p");
     rockResult.textContent = `${play("rock", computerPlay())}`;
-    rockResult.classList.add("font18");
-    results.appendChild(rockResult);
     updateScore();
 }
 
 let playPaper = function() {
     const paperResult = document.createElement("p");
     paperResult.textContent = `${play("paper", computerPlay())}`;
-    paperResult.classList.add("font18");
-    results.appendChild(paperResult);
     updateScore();
 }
 
 let playScissors = function() {
     const scissorsResult = document.createElement("p");
     scissorsResult.textContent = `${play("scissors", computerPlay())}`;
-    scissorsResult.classList.add("font18");
-    results.appendChild(scissorsResult);
     updateScore();
 }
 
