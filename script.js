@@ -64,6 +64,7 @@ function updateScore() {
 }
 
 // define rps DOM functions to be called
+// maybe refactor this or the event listener in the future
 let playRock = function() {
     const rockResult = document.createElement("p");
     rockResult.textContent = `${play("rock", computerPlay())}`;
