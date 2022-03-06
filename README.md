@@ -13,5 +13,5 @@ Along with having a solid plan before coding, I would often realize I could refa
 This will come with practice and experience. I had an issue of an unreachable function nested in another function. The reason for this was because of the return command which exited out of the first function, thus making the nested function unreachable.
 
 ## Possible Next Steps
-- Refactor more code
+- Refactor more code.
 There's definitely areas that can be tidied up. I may come back to them as practice later, but for now will move onto the next TOP project.
