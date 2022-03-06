@@ -10,35 +10,58 @@ function computerPlay(){
     return moves[computerNumber];
 }
 
+function add (text) {
+    const resultText = document.createElement("p");
+    resultText.innerText=`${text}`;
+    results.appendChild(resultText);
+}
+
+function winCondition() {
+    if (playerWins === 5) {
+        const playerW = document.createElement("p");
+        playerW.textContent = "The player wins!";
+        counter.parentElement.appendChild(playerW);
+    } if (computerWins === 5) {
+        const computerW = document.createElement("p");
+        computerW.textContent = "The computer wins!";
+        counter.parentElement.appendChild(computerW);
+    }
+}
+
 function play(playerSelection, computerSelection){
     // set string toLowerCase so capitalization on input doesn't matter
     let playerMove = playerSelection.toLowerCase();
     let computerMove = computerSelection.toLowerCase();
 
-
-
     // if...else if...else statements for all game outcomes
     if (playerMove === "rock" && computerMove === "paper") {
         computerWins++;
-        return "You Lose! Paper beats Rock.";
+        add("You lose! Paper beats rock.");
+        // return "You Lose! Paper beats Rock.";
     } else if (playerMove === "rock" && computerMove === "scissors") {
         playerWins++;
-        return "You Win! Rock beats Paper.";
+        add("You win! Rock beats paper.");
+        // return "You Win! Rock beats Paper.";
     } else if (playerMove === "paper" && computerMove === "rock") {
         playerWins++;
-        return "You Win! Paper beats Rock.";
+        add("You win! Paper beats rock.");
+        // return "You Win! Paper beats Rock.";
     } else if (playerMove === "paper" && computerMove === "scissors") {
         computerWins++;
-        return "You Lose! Scissors beats Paper.";
+        add("You lose! Scissors beats paper.");
+        // return "You Lose! Scissors beats Paper.";
     } else if (playerMove === "scissors" && computerMove === "rock") {
         computerWins++;
-        return "You Lose! Rock beats Scissors";
+        add("You lose! Rock beats scissors");
+        // return "You Lose! Rock beats Scissors";
     } else if (playerMove === "scissors" && computerMove === "paper") {
         playerWins++;
-        return "You Win! Scissors beats Paper.";
+        add("You win! Scissors beats paper.");
+        // return "You Win! Scissors beats Paper.";
     } else {
-        return "It's a tie. Play again.";
+        add("It's a tie. Play again.");
     }
+    winCondition();
 }
 
 // this calls the function computerPlay() and sets it to the constant computerSelection,
@@ -48,10 +71,10 @@ const computerSelection = computerPlay();
 // select the divs by class name
 const results = document.querySelector(".results");
 const score = document.querySelector(".score");
+const counter = document.querySelector(".scoreboard");
 
 // define a function that updates the score displayed to be called by the click event later
 function updateScore() {
-   const counter = document.querySelector(".scoreboard");
    counter.innerHTML = `Player Wins: ${playerWins} Computer Wins: ${computerWins}`;
    counter.parentElement.replaceChild(counter);
 }
@@ -81,24 +104,29 @@ let playScissors = function() {
     updateScore();
 }
 
+let checkScore = function () {
+    if (playerWins === 5) {
+        const playerW = document.createElement("p");
+        playerW.innerHTML = "Winner, winner, chicken dinner! The player has won.";
+        results.appendChild(playerW);
+    } if (computerWins === 5) {
+        const computerW = document.createElement("p");
+        computerW.innerHTML = "Womp, womp, womp. The computer has won.";
+        results.appendChild(computerW);
+    }
+}
 
 // adds an event listener to each RPS button
 const rock = document.querySelector(".rock");
 rock.addEventListener("click", playRock);
     
-
-
 const paper = document.querySelector(".paper");
 paper.addEventListener("click", playPaper);
 
 const scissors = document.querySelector(".scissors");
 scissors.addEventListener("click", playScissors);
   
-
-
-// display the running score and announce a winner of the game once one player reaches 5 points
-
-
+ 
 
 // function game() that plays rps 5 times and declares a winner at the end
 // function game(){
