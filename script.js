@@ -10,6 +10,7 @@ function computerPlay(){
     return moves[computerNumber];
 }
 
+// custom function that groups together DOM method of adding text
 function add (text) {
     const resultText = document.createElement("p");
     resultText.innerText=`${text}`;
@@ -17,22 +18,11 @@ function add (text) {
     results.appendChild(resultText);
 }
 
-function winCondition() {
-    if (playerWins === 5) {
-        const playerW = document.createElement("p");
-        playerW.textContent = "The player wins!";
-        counter.parentElement.appendChild(playerW);
-    } if (computerWins === 5) {
-        const computerW = document.createElement("p");
-        computerW.textContent = "The computer wins!";
-        counter.parentElement.appendChild(computerW);
-    }
-}
-
-function play(playerSelection, computerSelection){
+// rps game function
+function play(playerSelection, computerPlay){
     // set string toLowerCase so capitalization on input doesn't matter
     let playerMove = playerSelection.toLowerCase();
-    let computerMove = computerSelection.toLowerCase();
+    let computerMove = computerPlay.toLowerCase();
 
     // if...else if...else statements for all game outcomes
     if (playerMove === "rock" && computerMove === "paper") {
@@ -56,12 +46,10 @@ function play(playerSelection, computerSelection){
     } else {
         add("It's a tie. Play again.");
     }
+    // checks if a player has 5 wins
     winCondition();
 }
 
-// this calls the function computerPlay() and sets it to the constant computerSelection,
-//  thus actually making the computer play after defining the variables earlier
-const computerSelection = computerPlay();
 
 // select the divs by class name
 const results = document.querySelector(".results");
@@ -94,18 +82,6 @@ let playScissors = function() {
     updateScore();
 }
 
-let checkScore = function () {
-    if (playerWins === 5) {
-        const playerW = document.createElement("p");
-        playerW.innerHTML = "Winner, winner, chicken dinner! The player has won.";
-        results.appendChild(playerW);
-    } if (computerWins === 5) {
-        const computerW = document.createElement("p");
-        computerW.innerHTML = "Womp, womp, womp. The computer has won.";
-        results.appendChild(computerW);
-    }
-}
-
 // adds an event listener to each RPS button
 const rock = document.querySelector(".rock");
 rock.addEventListener("click", playRock);
@@ -116,6 +92,26 @@ paper.addEventListener("click", playPaper);
 const scissors = document.querySelector(".scissors");
 scissors.addEventListener("click", playScissors);
   
+function remove () {
+    rock.removeEventListener("click", playRock);
+    paper.removeEventListener("click", playPaper);
+    scissors.removeEventListener("click", playScissors);
+}
+
+// declares first to five wins the overall winner and removes the click event listener, thus ending the game
+function winCondition() {
+    if (playerWins === 5) {
+        const playerW = document.createElement("p");
+        playerW.textContent = "Winner, winner, chicken dinner! The player has won.";
+        counter.parentElement.appendChild(playerW);
+        remove();
+    } if (computerWins === 5) {
+        const computerW = document.createElement("p");
+        computerW.textContent = "Womp, womp, womp. The computer has won.";
+        counter.parentElement.appendChild(computerW);
+        remove();
+    }
+}
  
 
 // function game() that plays rps 5 times and declares a winner at the end
